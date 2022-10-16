@@ -14,6 +14,11 @@ const { NotImplementedError } = require('../extensions/index.js');
 function getSeason(/* date */) {
   throw new NotImplementedError('Not implemented');
   // remove line with error and write your code here
+
+  //На пустоту его вообще не надо проверять. Надо проверять его 
+  //наличие (одна проверка) и то, что он является датой, причем 
+  //не поддельной (другая проверка) - есть пара тестов, которые 
+  //подсовывают поддельную дату
 }
 
 module.exports = {
