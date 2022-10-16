@@ -21,7 +21,7 @@ function repeater(str = 'STRING_OR_DEFAULT', { repeatTimes = 1, separator = '+',
 
   for (i = 0; i < repeatTimes; i++) {
     result += string;
-    console.log(result)
+    //console.log(result)
     for (let j = 0; j < additionRepeatTimes; j++) {
       if (j < additionRepeatTimes - 1) {
         result += addition + additionSeparator;
@@ -29,13 +29,13 @@ function repeater(str = 'STRING_OR_DEFAULT', { repeatTimes = 1, separator = '+',
         result += addition;
       }
     }
-    console.log(result)
+    //console.log(result)
     if (i < repeatTimes - 1) {
       result += separator;
     } else {
       result += "";
     }
-    console.log(result)
+    //console.log(result)
   }
   return result
 
