@@ -43,7 +43,7 @@ class VigenereCipheringMachine {
     /* if (crypt === undefined || key === undefined) {
       throw new Error('Incorrect arguments!');
     } */
-
+    throw new NotImplementedError('Not implemented');
   }
 }
 
