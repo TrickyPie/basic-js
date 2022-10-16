@@ -20,26 +20,22 @@ function repeater(str = 'STRING_OR_DEFAULT', { repeatTimes = 1, separator = '+',
   let result = "";
 
   for (i = 0; i < repeatTimes; i++) {
-    result += string;
+    result = `${result}${string}`;
     //console.log(result)
     for (let j = 0; j < additionRepeatTimes; j++) {
       if (j < additionRepeatTimes - 1) {
-        result += addition + additionSeparator;
+        result = `${result}${addition}${additionSeparator}`;
       } else {
-        result += addition;
+        result = `${result}${addition}`;
       }
     }
     //console.log(result)
     if (i < repeatTimes - 1) {
-      result += separator;
-    } else {
-      result += "";
+      result = `${result}${separator}`;
     }
     //console.log(result)
   }
-  return result
-
-
+  return result;
 }
 
 module.exports = {
