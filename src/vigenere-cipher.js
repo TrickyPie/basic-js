@@ -20,31 +20,87 @@ const { NotImplementedError } = require('../extensions/index.js');
  * 
  */
 class VigenereCipheringMachine {
+  constructor(type) {
+    this.type = type;
+  }
+
   encrypt(message, key) {
-    /*if (message === undefined || key === undefined || ) {
+
+    /* Для всех, у кого возникла проблема с Vigener cipher. Эта задача сформулирована не достаточно 
+    точно в части того, что такое "reverse machine". Я пошёл прямым путём. При шифровании, сначала 
+    шифровал а потом переворачивал зашифрованную строку прямо перед выходом из функции. А при 
+    дешифровании требуется раскрутить клубок в обратную сторону, ведь так? Я именно так и подумал: 
+    на входе в дешифровщик переворачивал шифровку и далее расшифровывал. Так вот, - с таким алгоритмом 
+    последний тест не пройти. Для "reverse machine" надо и на входе в шифровальщик сразу переворачивать 
+    исходную строку. И на входе в дешифровщик тоже сразу переворачивать шифр. Тогда всё работает. 
+    Разобрался в этом только трассировкой тестов в браузере. Возможно, будет работать, если и там и 
+    там переворачивать на выходе - не проверял.  */
+
+    let alphabet = [
+      { char: 'A', number: 0 },
+      { char: 'B', number: 1 },
+      { char: 'C', number: 2 },
+      { char: 'D', number: 3 },
+      { char: 'F', number: 5 },
+      { char: 'E', number: 4 },
+      { char: 'G', number: 6 },
+      { char: 'H', number: 7 },
+      { char: 'I', number: 8 },
+      { char: 'J', number: 9 },
+      { char: 'K', number: 10 },
+      { char: 'L', number: 11 },
+      { char: 'M', number: 12 },
+      { char: 'N', number: 13 },
+      { char: 'O', number: 14 },
+      { char: 'P', number: 15 },
+      { char: 'Q', number: 16 },
+      { char: 'R', number: 17 },
+      { char: 'S', number: 18 },
+      { char: 'T', number: 19 },
+      { char: 'U', number: 20 },
+      { char: 'V', number: 21 },
+      { char: 'W', number: 22 },
+      { char: 'X', number: 23 },
+      { char: 'Y', number: 24 },
+      { char: 'Z', number: 25 }];
+
+    if (message === undefined || key === undefined) {
       throw new Error('Incorrect arguments!');
     }
-     let alphabet = {
-      'A': 0, 'B': 1, 'C': 2, 'D': 3, 'E': 4, 'F': 5, 'G': 6, 'H': 7, 'I': 8, 'J': 9, 'K': 10, 'L': 11, 'M': 12, 'N': 13, 'O': 14, 'P': 15, 'Q': 16, 'R': 17, 'S': 18, 'T': 19, 'U': 20, 'V': 21, 'W': 22, 'X': 23, 'Y': 24, 'Z': 25
+
+    while (key.length < message.length) {
+      key += key;
+    }
+    console.log(key)
+
+
+    let keyArr = key.toUpperCase().split("");
+    let messageArr = message.toUpperCase().split("");
+
+    console.log(keyArr)
+    console.log(messageArr)
+
+    function code(arr) {
+      for (let i = 0; i < arr.length; i++) {
+        for (let j = 0; j < alphabet.length; j++)
+          if (arr[i] === alphabet[j].char) {
+            arr[i] = alphabet[j].number;
+          }
+      }
+      return arr;
     }
 
-    let messageArr = message.toUpperCase().split("");
-    for (let i = 0; i < messageArr.length; i++) {
-      if (messageArr[i].includes(Object.keys(alphabet))) {
-        messageArr[i] = alphabet[i];
-      }
-    } */
 
 
-
-    throw new NotImplementedError('Not implemented');
+    this.type === false ? arr.reverse().join('') : arr.join('');
   }
   decrypt(crypt, key) {
-    /* if (crypt === undefined || key === undefined) {
+    if (crypt === undefined || key === undefined) {
       throw new Error('Incorrect arguments!');
-    } */
-    throw new NotImplementedError('Not implemented');
+    }
+    this.type === false ? arr.reverse().join('') : arr.join('')/*  */
   }
+
 }
 
 module.exports = {
