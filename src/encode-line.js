@@ -24,6 +24,7 @@ function encodeLine(str) {
     counter > 1 ? encodingString.push(counter, str[i]) : encodingString.push(str[i])
     counter = 1;
   }
+  
   encodingString = encodingString.join('')
   return encodingString;
 }

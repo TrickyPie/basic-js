@@ -64,6 +64,9 @@ class VigenereCipheringMachine {
       { char: 'Y', number: 24 },
       { char: 'Z', number: 25 }];
 
+
+    /* там просто нужно всё, что не A-Z сразу записывать в результирующий массив без всякой 
+    обработки и переходить к следующему символу. И ключ не сдвигать вперед ни в коем случае. */
     if (message === undefined || key === undefined) {
       throw new Error('Incorrect arguments!');
     }

@@ -24,13 +24,13 @@ function getSeason(date) {
     throw new Error('Invalid date!')
   }
 
-  let currentMonth = date.getMonth() + 1;
+  let currentMonth = date.getMonth();
 
-  if (currentMonth >= 3 && currentMonth <= 5) {
+  if (currentMonth >= 2 && currentMonth <= 4) {
     return "spring";
-  } else if (currentMonth >= 6 && currentMonth <= 8) {
+  } else if (currentMonth >= 5 && currentMonth <= 7) {
     return "summer";
-  } else if (currentMonth >= 9 && currentMonth <= 11) {
+  } else if (currentMonth >= 8 && currentMonth <= 10) {
     return "fall";
   } else {
     return "winter"
